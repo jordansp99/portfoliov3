@@ -1,5 +1,6 @@
 ---
 title: Sentinel LLM Guard
+order: 1
 description: An open-source security layer for Large Language Models to detect and mitigate prompt injection attacks.
 tags: 
   - LLM
@@ -20,3 +21,4 @@ Sentinel is a security middleware designed to protect LLM-integrated application
 
 ## Technical Details
 Built using **LangChain**, **FastAPI**, and **React**. The core engine uses a distilled BERT model to classify potential threats with 98.4% accuracy.
+**test**

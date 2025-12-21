@@ -1,5 +1,6 @@
 ---
 title: Neural Style Transfer for Design
+order: 3
 description: A tool for designers to apply artistic styles to product prototypes using VGG-19 based optimization.
 tags:
   - Computer Vision
@@ -13,9 +14,22 @@ imageUrl: https://picsum.photos/seed/style/800/400
 Bridging the gap between fine art and industrial design.
 
 ## Overview
-This project implements a neural style transfer algorithm based on the Gatys et al. paper, optimized for high-resolution output suitable for print media.
+This project implements a neural style transfer algorithm based on the [Gatys et al. paper](https://arxiv.org/abs/1508.06576), optimized for high-resolution output suitable for print media.
 
-## Key Achievements
-- **Multi-scale Optimization**: Handles 4K images without losing texture coherence.
-- **Fast Inference**: Optional Feed-forward network implementation for real-time preview.
-- **Color Preservation**: Custom loss function to keep original color palettes while transferring texture.
+## Implementation
+Here is a snippet of the style loss calculation:
+
+```python
+def calc_style_loss(gen, style):
+    gen_features = model(gen)
+    style_features = model(style)
+    loss = 0
+    for gf, sf in zip(gen_features, style_features):
+        loss += torch.mean((gram_matrix(gf) - gram_matrix(sf)) ** 2)
+    return loss
+```
+
+## Results
+We achieved real-time performance using a feed-forward network.
+
+![Style Transfer Example](https://picsum.photos/seed/result/800/400)

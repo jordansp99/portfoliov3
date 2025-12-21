@@ -1,36 +1,9 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { BLOG_POSTS, PROJECTS } from '../constants';
-
-// Very simple custom Markdown-like renderer to avoid heavy dependencies 
-// while adhering to neobrutalism aesthetics for typography.
-const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
-  const lines = content.trim().split('\n');
-  
-  return (
-    <div className="prose-neo space-y-6">
-      {lines.map((line, i) => {
-        if (line.startsWith('# ')) return <h1 key={i} className="text-5xl font-black mt-12 mb-6 border-b-8 border-yellow-400 pb-2">{line.slice(2)}</h1>;
-        if (line.startsWith('## ')) return <h2 key={i} className="text-3xl font-black mt-8 mb-4 border-l-8 border-black pl-4 bg-gray-50">{line.slice(3)}</h2>;
-        if (line.startsWith('- ')) return <div key={i} className="flex gap-4 font-bold text-lg items-start"><span className="mt-2 w-3 h-3 bg-black flex-shrink-0"></span><span>{line.slice(2)}</span></div>;
-        if (line.startsWith('1. ')) return <div key={i} className="flex gap-4 font-bold text-lg items-start"><span className="px-2 border-2 border-black bg-yellow-200">{line.split('.')[0]}</span><span>{line.slice(3)}</span></div>;
-        if (line.trim() === '') return <br key={i} />;
-        
-        // Handling inline bold **text**
-        const formattedLine = line.split(/(\*\*.*?\*\*)/).map((part, j) => {
-          if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={j} className="bg-blue-100 px-1 underline">{part.slice(2, -2)}</strong>;
-          }
-          return part;
-        });
-
-        return <p key={i} className="text-xl font-medium leading-relaxed">{formattedLine}</p>;
-      })}
-    </div>
-  );
-};
 
 const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
   const { id } = useParams();
@@ -70,11 +43,36 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
         </div>
 
         <div className="bg-white border-4 border-black p-8 md:p-12 neo-brutal-shadow">
-          <MarkdownRenderer content={data.markdown} />
+          <ReactMarkdown 
+            className="space-y-6"
+            components={{
+              h1: ({node, ...props}) => <h1 className="text-5xl font-black mt-12 mb-6 border-b-8 border-yellow-400 pb-2" {...props} />,
+              h2: ({node, ...props}) => <h2 className="text-3xl font-black mt-8 mb-4 border-l-8 border-black pl-4 bg-gray-50" {...props} />,
+              h3: ({node, ...props}) => <h3 className="text-2xl font-black mt-6 mb-3" {...props} />,
+              p: ({node, ...props}) => <p className="text-xl font-medium leading-relaxed mb-6" {...props} />,
+              ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-2 text-lg font-bold ml-4" {...props} />,
+              ol: ({node, ...props}) => <ol className="list-decimal list-inside space-y-2 text-lg font-bold ml-4" {...props} />,
+              li: ({node, ...props}) => <li className="pl-2" {...props} />,
+              a: ({node, ...props}) => <a className="underline decoration-2 underline-offset-4 decoration-blue-500 hover:bg-blue-100 transition-colors" {...props} />,
+              blockquote: ({node, ...props}) => <blockquote className="border-l-8 border-black pl-6 py-2 text-2xl font-bold italic bg-gray-100 my-8" {...props} />,
+              code: ({node, className, children, ...props}: any) => {
+                const match = /language-(\w+)/.exec(className || '')
+                const isInline = !match && !String(children).includes('\n');
+                return isInline 
+                  ? <code className="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm border border-black" {...props}>{children}</code>
+                  : <code className="block bg-gray-900 text-white p-6 overflow-x-auto font-mono text-sm border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6" {...props}>{children}</code>
+              },
+              pre: ({node, ...props}) => <pre className="not-prose" {...props} />,
+              img: ({node, ...props}) => <img className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8" {...props} />
+            }}
+          >
+            {data.markdown}
+          </ReactMarkdown>
         </div>
       </div>
     </article>
   );
 };
+
 
 export default PostDetail;

@@ -67,11 +67,17 @@ const loadContent = <T>(files: Record<string, any>, type: 'project' | 'blog'): T
 
 // Load Projects
 const projectFiles = import.meta.glob('./content/projects/*.md', { eager: true, query: '?raw' });
-export const PROJECTS: Project[] = loadContent<Project>(projectFiles, 'project');
+export const PROJECTS: Project[] = loadContent<Project>(projectFiles, 'project')
+  .sort((a, b) => {
+    const orderA = a.order ? Number(a.order) : 999;
+    const orderB = b.order ? Number(b.order) : 999;
+    return orderA - orderB;
+  });
 
 // Load Blog Posts
 const blogFiles = import.meta.glob('./content/posts/*.md', { eager: true, query: '?raw' });
-export const BLOG_POSTS: BlogPost[] = loadContent<BlogPost>(blogFiles, 'blog');
+export const BLOG_POSTS: BlogPost[] = loadContent<BlogPost>(blogFiles, 'blog')
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export const EXPERIENCES: Experience[] = [
   {
