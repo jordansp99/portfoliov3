@@ -87,7 +87,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
           </div>
           <div className="flex flex-col md:items-end justify-center">
-            <p className="text-xl font-bold mb-2 uppercase">© 2024 Jordan Speight</p>
+            <p className="text-xl font-bold mb-2 uppercase">© {new Date().getFullYear()} Jordan Speight</p>
           </div>
         </div>
       </footer>
