@@ -105,14 +105,14 @@ export const EXPERIENCES: Experience[] = [
 export const PUBLICATIONS: Publication[] = [
   {
     title: "Adapting Whisper for regional dialects: Enhancing public services for vulnerable populations in the United Kingdom",
-    authors: "M Torgbi, A Clayman, JJ Speight, HT Madabushi",
+    authors: "Torgbi, M., Clayman, A., Speight, J.J. and Madabushi, H.T.",
     venue: "arXiv preprint arXiv:2501.08502",
     year: "2025",
     link: "https://arxiv.org/abs/2501.08502"
   },
   {
     title: "Inclusive ASR for Critical Public Services: Debiasing with Actor-Simulated Speech",
-    authors: "M Torgbi, A Clayman, J Speight, J Hirst, HT Madabushi",
+    authors: "Torgbi, M., Clayman, A., Speight, J., Hirst, J. and Madabushi, H.T.",
     venue: "International Conference on Text, Speech, and Dialogue",
     year: "2025",
     link: "https://link.springer.com/chapter/10.1007/978-3-032-02548-7_28"
