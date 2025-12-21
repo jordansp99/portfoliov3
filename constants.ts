@@ -1,13 +1,61 @@
 
-import fm from 'front-matter';
 import { Project, BlogPost, Experience, Publication } from './types';
+
+// Simple Frontmatter Parser to avoid heavy dependencies and polyfill issues
+const parseFrontmatter = (text: string) => {
+  // Match YAML block between ---
+  const pattern = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
+  const match = text.match(pattern);
+  
+  if (!match) {
+    // If no frontmatter, return empty attributes and full text
+    return { attributes: {} as any, body: text };
+  }
+
+  const yaml = match[1];
+  const body = match[2].trim();
+  const attributes: any = {};
+  
+  let currentKey: string | null = null;
+
+  yaml.split('\n').forEach(line => {
+    // Skip empty lines
+    if (!line.trim()) return;
+    
+    // Handle list items (e.g., tags)
+    if (line.trim().startsWith('- ')) {
+      if (currentKey && Array.isArray(attributes[currentKey])) {
+        attributes[currentKey].push(line.trim().substring(2));
+      }
+      return;
+    }
+
+    const colonIndex = line.indexOf(':');
+    if (colonIndex !== -1) {
+      const key = line.substring(0, colonIndex).trim();
+      const value = line.substring(colonIndex + 1).trim();
+      
+      if (value === '') {
+        // Start of a list (e.g., "tags:")
+        currentKey = key;
+        attributes[key] = [];
+      } else {
+        // Simple key-value
+        currentKey = null;
+        attributes[key] = value;
+      }
+    }
+  });
+
+  return { attributes, body };
+};
 
 // Helper to load content dynamically
 const loadContent = <T>(files: Record<string, any>, type: 'project' | 'blog'): T[] => {
   return Object.entries(files).map(([path, mod]) => {
     const id = path.split('/').pop()?.replace('.md', '') || '';
     const content = mod.default as string;
-    const parsed = fm<any>(content);
+    const parsed = parseFrontmatter(content);
     
     return {
       id,
