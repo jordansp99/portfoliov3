@@ -104,7 +104,7 @@ export const EXPERIENCES: Experience[] = [
 
 export const PUBLICATIONS: Publication[] = [
   {
-    title: "Adapting Whisper for regional dialects: Enhancing public services for vulnerable populations in the United Kingdom",
+    title: "Adapting Whisper for Regional Dialects: Enhancing Public Services for Vulnerable Populations in the United Kingdom",
     authors: "Torgbi, M., Clayman, A., Speight, J.J. and Madabushi, H.T.",
     venue: "arXiv preprint arXiv:2501.08502",
     year: "2025",
