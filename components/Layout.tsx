@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail, Twitter, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -80,9 +80,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </a>
               <a href="#" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
                 <Linkedin />
-              </a>
-              <a href="#" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
-                <Twitter />
               </a>
               <a href="mailto:jordan@speight.ai" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
                 <Mail />
