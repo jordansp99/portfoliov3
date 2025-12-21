@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navLinks = [
     { name: 'Profile', path: '/' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Writings', path: '/blog' },
+    { name: 'Blog', path: '/blog' },
   ];
 
   return (

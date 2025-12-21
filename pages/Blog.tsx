@@ -8,7 +8,7 @@ const Blog: React.FC = () => {
   return (
     <div className="space-y-16">
       <header className="space-y-4">
-        <h1 className="text-6xl md:text-8xl font-black underline decoration-green-500 underline-offset-8">WRITINGS</h1>
+        <h1 className="text-6xl md:text-8xl font-black underline decoration-green-500 underline-offset-8">BLOG</h1>
         <p className="text-2xl font-bold max-w-2xl">
           Thoughts on AI architecture, deep learning research, and the future of engineering.
         </p>

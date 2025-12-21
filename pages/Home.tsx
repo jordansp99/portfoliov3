@@ -185,7 +185,7 @@ const Home: React.FC = () => {
                 PROJECTS <ArrowRight size={36} />
              </Link>
              <Link to="/blog" className="bg-blue-400 text-black p-8 text-3xl font-black flex justify-between items-center hover:bg-white transition-colors border-4 border-black">
-                WRITINGS <ArrowRight size={36} />
+                BLOG <ArrowRight size={36} />
              </Link>
           </div>
         </div>
