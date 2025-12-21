@@ -1,3 +1,13 @@
+---
+title: Optimizing Inference: Tips from the Field
+date: February 10, 2024
+excerpt: Practical techniques for reducing VRAM usage and increasing throughput in production LLMs.
+tags:
+  - Engineering
+  - LLM
+  - Optimization
+---
+
 # Optimizing Inference: Tips from the Field
 
 Deploying models is easy; deploying them efficiently is hard.

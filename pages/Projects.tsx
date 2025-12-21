@@ -14,10 +14,10 @@ const Projects: React.FC = () => {
       </header>
 
       <div className="grid grid-cols-1 gap-12">
-        {PROJECTS.map((project, idx) => (
+        {PROJECTS.map((project) => (
           <div 
             key={project.id} 
-            className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 bg-white border-4 border-black neo-brutal-shadow p-6`}
+            className="flex flex-col md:flex-row gap-8 bg-white border-4 border-black neo-brutal-shadow p-6"
           >
             <div className="md:w-1/2 overflow-hidden border-4 border-black">
               <img 

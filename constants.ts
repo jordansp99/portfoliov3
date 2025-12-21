@@ -1,9 +1,29 @@
 
+import fm from 'front-matter';
 import { Project, BlogPost, Experience, Publication } from './types';
-import sentinelLlmMd from './content/projects/sentinel-llm.md?raw';
-import visionFlowMd from './content/projects/vision-flow.md?raw';
-import futureMultimodalMd from './content/posts/future-of-multimodal.md?raw';
-import optimizingInferenceMd from './content/posts/optimizing-inference.md?raw';
+
+// Helper to load content dynamically
+const loadContent = <T>(files: Record<string, any>, type: 'project' | 'blog'): T[] => {
+  return Object.entries(files).map(([path, mod]) => {
+    const id = path.split('/').pop()?.replace('.md', '') || '';
+    const content = mod.default as string;
+    const parsed = fm<any>(content);
+    
+    return {
+      id,
+      ...parsed.attributes,
+      markdown: parsed.body
+    } as T;
+  });
+};
+
+// Load Projects
+const projectFiles = import.meta.glob('./content/projects/*.md', { eager: true, query: '?raw' });
+export const PROJECTS: Project[] = loadContent<Project>(projectFiles, 'project');
+
+// Load Blog Posts
+const blogFiles = import.meta.glob('./content/posts/*.md', { eager: true, query: '?raw' });
+export const BLOG_POSTS: BlogPost[] = loadContent<BlogPost>(blogFiles, 'blog');
 
 export const EXPERIENCES: Experience[] = [
   {
@@ -51,40 +71,3 @@ export const PUBLICATIONS: Publication[] = [
   }
 ];
 
-export const PROJECTS: Project[] = [
-  {
-    id: "sentinel-llm",
-    title: "Sentinel LLM Guard",
-    description: "An open-source security layer for Large Language Models to detect and mitigate prompt injection attacks.",
-    tags: ["LLM", "Security", "Python", "React"],
-    imageUrl: "https://picsum.photos/seed/sentinel/800/400",
-    markdown: sentinelLlmMd
-  },
-  {
-    id: "vision-flow",
-    title: "VisionFlow",
-    description: "Real-time edge processing for multi-camera stream analysis using TensorRT.",
-    tags: ["Computer Vision", "C++", "TensorRT", "Edge Computing"],
-    imageUrl: "https://picsum.photos/seed/vision/800/400",
-    markdown: visionFlowMd
-  }
-];
-
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: "future-of-multimodal",
-    title: "The Future of Multimodal Reasoning",
-    date: "March 15, 2024",
-    excerpt: "Exploring how the convergence of vision, audio, and text models is reshaping human-computer interaction.",
-    tags: ["Research", "AI Trends", "Multimodal"],
-    markdown: futureMultimodalMd
-  },
-  {
-    id: "optimizing-inference",
-    title: "Optimizing Inference: Tips from the Field",
-    date: "February 10, 2024",
-    excerpt: "Practical techniques for reducing VRAM usage and increasing throughput in production LLMs.",
-    tags: ["Engineering", "LLM", "Optimization"],
-    markdown: optimizingInferenceMd
-  }
-];

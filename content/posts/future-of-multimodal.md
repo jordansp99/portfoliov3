@@ -1,3 +1,13 @@
+---
+title: The Future of Multimodal Reasoning
+date: March 15, 2024
+excerpt: Exploring how the convergence of vision, audio, and text models is reshaping human-computer interaction.
+tags:
+  - Research
+  - AI Trends
+  - Multimodal
+---
+
 # The Future of Multimodal Reasoning
 
 Multimodal models are no longer just a research curiosity; they are becoming the backbone of intelligent systems.
