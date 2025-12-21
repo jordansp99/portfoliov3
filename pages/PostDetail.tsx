@@ -2,10 +2,15 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
 import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { BLOG_POSTS, PROJECTS } from '../constants';
+
+SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('bash', bash);
 
 const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
   const { id } = useParams();
