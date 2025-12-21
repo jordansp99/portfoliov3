@@ -23,7 +23,7 @@ const Home: React.FC = () => {
             </h1>
           </div>
           <p className="text-2xl md:text-4xl font-bold leading-tight max-w-3xl text-gray-800">
-            Building the infrastructure for the next generation of artificial intelligence. Specialized in <span className="underline decoration-blue-500 underline-offset-4">LLM Engineering</span> and <span className="underline decoration-green-500 underline-offset-4">Computer Vision</span>.
+            Building the infrastructure for the next generation of artificial intelligence. Specialised in <span className="underline decoration-blue-500 underline-offset-4">LLM Engineering</span> and <span className="underline decoration-green-500 underline-offset-4">Computer Vision</span>.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <button className="bg-black text-white px-10 py-5 text-2xl font-black flex items-center gap-3 neo-brutal-shadow-hover transition-all">
@@ -92,12 +92,12 @@ const Home: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { icon: <Brain size={32} />, title: "Deep Learning", color: "bg-pink-300", items: "PyTorch, JAX, HuggingFace" },
-            { icon: <Cpu size={32} />, title: "AI Engineering", color: "bg-green-300", items: "Quantization, CUDA, TensorRT" },
-            { icon: <Database size={32} />, title: "Cloud & Data", color: "bg-blue-300", items: "AWS, Kubernetes, Pinecone" },
-            { icon: <Rocket size={32} />, title: "Production", color: "bg-orange-300", items: "FastAPI, Docker, CI/CD" },
+            { icon: <Brain size={32} />, title: "Deep Learning", colour: "bg-pink-300", items: "PyTorch, JAX, HuggingFace" },
+            { icon: <Cpu size={32} />, title: "AI Engineering", colour: "bg-green-300", items: "Quantization, CUDA, TensorRT" },
+            { icon: <Database size={32} />, title: "Cloud & Data", colour: "bg-blue-300", items: "AWS, Kubernetes, Pinecone" },
+            { icon: <Rocket size={32} />, title: "Production", colour: "bg-orange-300", items: "FastAPI, Docker, CI/CD" },
           ].map((skill, i) => (
-            <div key={i} className={`${skill.color} p-10 border-4 border-black neo-brutal-shadow h-full flex flex-col gap-6`}>
+            <div key={i} className={`${skill.colour} p-10 border-4 border-black neo-brutal-shadow h-full flex flex-col gap-6`}>
               <div className="w-20 h-20 bg-white border-4 border-black flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                 {skill.icon}
               </div>
