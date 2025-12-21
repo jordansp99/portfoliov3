@@ -86,7 +86,7 @@ export const EXPERIENCES: Experience[] = [
     period: "2022 - Present",
     description: [
       "Leading the development of multi-modal RAG systems for enterprise knowledge bases.",
-      "Optimised inference latency by 40% through quantization and custom CUDA kernels.",
+      "Optimised inference latency by 40% through quantisation and custom CUDA kernels.",
       "Managed a team of 4 engineers focusing on vision-language models."
     ]
   },
