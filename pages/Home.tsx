@@ -9,7 +9,7 @@ import { EXPERIENCES, PUBLICATIONS, PROJECTS, BLOG_POSTS } from '../constants';
 
 const Home: React.FC = () => {
   return (
-    <div className="space-y-32 pb-24">
+    <div className="space-y-20 pb-24">
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-start gap-12 pt-12">
         <div className="flex-1 space-y-10">
@@ -53,33 +53,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Publications Section - Featured at Top */}
-      <section className="space-y-12">
-        <div className="flex items-center gap-4 bg-green-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <BookOpen size={40} />
-          <h2 className="text-4xl md:text-6xl font-black">PUBLICATIONS</h2>
-        </div>
-        <div className="grid grid-cols-1 gap-8">
-          {PUBLICATIONS.map((pub, i) => (
-            <div key={i} className="group bg-white border-4 border-black p-8 neo-brutal-shadow-hover transition-all flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
-              <div className="space-y-3">
-                <h3 className="text-3xl font-black group-hover:text-blue-600 transition-colors">{pub.title}</h3>
-                <p className="text-xl font-bold text-gray-500 italic">{pub.authors}</p>
-                <div className="flex gap-4 items-center">
-                   <span className="bg-blue-100 border-2 border-black px-3 py-1 text-sm font-black uppercase">{pub.venue}</span>
-                   <span className="font-black text-gray-400 text-lg">{pub.year}</span>
-                </div>
-              </div>
-              {pub.link && (
-                <a href={pub.link} className="bg-black text-white p-5 border-2 border-black hover:bg-blue-500 transition-colors neo-brutal-shadow">
-                  <ExternalLink size={32} />
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Experience Section */}
       <section className="space-y-12">
         <div className="flex items-center gap-4 bg-yellow-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -110,7 +83,7 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
-
+      
       {/* Tech Stack / Skills */}
       <section className="space-y-12">
         <div className="flex items-center gap-4 bg-purple-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -135,46 +108,51 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Education & Recognition */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <section className="space-y-12">
-          <div className="flex items-center gap-4 bg-blue-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <GraduationCap size={40} />
-            <h2 className="text-4xl md:text-6xl font-black">EDUCATION</h2>
-          </div>
-          <div className="space-y-8">
-            <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
-              <h3 className="text-3xl font-black">MSc in Artificial Intelligence</h3>
-              <p className="text-2xl font-bold mt-2">Imperial College London • 2019-2020</p>
-              <p className="text-xl text-gray-500 font-bold mt-4 italic">Specialization: Vision Systems & GANs</p>
-            </div>
-            <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
-              <h3 className="text-3xl font-black">BSc Computer Science</h3>
-              <p className="text-2xl font-bold mt-2">University of Edinburgh • 2015-2019</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-12">
-          <div className="flex items-center gap-4 bg-orange-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <Award size={40} />
-            <h2 className="text-4xl md:text-6xl font-black">AWARDS</h2>
-          </div>
-          <div className="space-y-6">
-            {[
-              "1st Place - Global AI Hackathon (2023)",
-              "AWS Certified Machine Learning Specialist",
-              "Open Source Contributor (PyTorch Lightning)",
-              "Outstanding MSc Dissertation Award"
-            ].map((award, i) => (
-              <div key={i} className="flex items-center gap-8 border-b-8 border-black pb-6 hover:translate-x-4 transition-transform group">
-                <div className="w-6 h-6 bg-black flex-shrink-0 rotate-45 group-hover:bg-orange-500 transition-colors"></div>
-                <p className="font-black text-3xl uppercase tracking-tighter">{award}</p>
+      {/* Publications Section */}
+      <section className="space-y-12">
+        <div className="flex items-center gap-4 bg-green-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <BookOpen size={40} />
+          <h2 className="text-4xl md:text-6xl font-black">PUBLICATIONS</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-8">
+          {PUBLICATIONS.map((pub, i) => (
+            <div key={i} className="group bg-white border-4 border-black p-8 neo-brutal-shadow-hover transition-all flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
+              <div className="space-y-3">
+                <h3 className="text-3xl font-black group-hover:text-blue-600 transition-colors">{pub.title}</h3>
+                <p className="text-xl font-bold text-gray-500 italic">{pub.authors}</p>
+                <div className="flex gap-4 items-center">
+                   <span className="bg-blue-100 border-2 border-black px-3 py-1 text-sm font-black uppercase">{pub.venue}</span>
+                   <span className="font-black text-gray-400 text-lg">{pub.year}</span>
+                </div>
               </div>
-            ))}
+              {pub.link && (
+                <a href={pub.link} className="bg-black text-white p-5 border-2 border-black hover:bg-blue-500 transition-colors neo-brutal-shadow">
+                  <ExternalLink size={32} />
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+      
+      {/* Education */}
+      <section className="space-y-12">
+        <div className="flex items-center gap-4 bg-blue-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <GraduationCap size={40} />
+          <h2 className="text-4xl md:text-6xl font-black">EDUCATION</h2>
+        </div>
+        <div className="space-y-8">
+          <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
+            <h3 className="text-3xl font-black">MSc in Artificial Intelligence</h3>
+            <p className="text-2xl font-bold mt-2">Imperial College London • 2019-2020</p>
+            <p className="text-xl text-gray-500 font-bold mt-4 italic">Specialization: Vision Systems & GANs</p>
           </div>
-        </section>
-      </div>
+          <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
+            <h3 className="text-3xl font-black">BSc Computer Science</h3>
+            <p className="text-2xl font-bold mt-2">University of Edinburgh • 2015-2019</p>
+          </div>
+        </div>
+      </section>
 
       {/* Final CTAs */}
       <section className="bg-black text-white p-20 border-8 border-black shadow-[24px_24px_0px_0px_rgba(251,191,36,1)]">
