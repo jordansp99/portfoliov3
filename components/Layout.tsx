@@ -8,7 +8,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Profile (CV)', path: '/' },
+    { name: 'Profile', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'Writings', path: '/blog' },
   ];

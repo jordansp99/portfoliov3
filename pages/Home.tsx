@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             <div className="flex gap-6 items-center pl-6 border-l-8 border-black">
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Location</span>
-                <span className="font-black text-lg uppercase">London, UK</span>
+                <span className="font-black text-lg uppercase">Buckinghamshire, UK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Email</span>
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
       <section className="space-y-12">
         <div className="flex items-center gap-4 bg-green-400 border-4 border-black p-6 w-fit shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <BookOpen size={40} />
-          <h2 className="text-4xl md:text-6xl font-black">SELECTED PUBLICATIONS</h2>
+          <h2 className="text-4xl md:text-6xl font-black">PUBLICATIONS</h2>
         </div>
         <div className="grid grid-cols-1 gap-8">
           {PUBLICATIONS.map((pub, i) => (
