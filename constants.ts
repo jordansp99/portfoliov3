@@ -104,24 +104,18 @@ export const EXPERIENCES: Experience[] = [
 
 export const PUBLICATIONS: Publication[] = [
   {
-    title: "Latent Space Optimization for Real-time Multi-modal Alignment",
-    authors: "Speight, J., Chen, L., et al.",
-    venue: "NeurIPS 2023 Workshop on Generative AI",
-    year: "2023",
-    link: "#"
+    title: "Adapting Whisper for regional dialects: Enhancing public services for vulnerable populations in the United Kingdom",
+    authors: "M Torgbi, A Clayman, JJ Speight, HT Madabushi",
+    venue: "arXiv preprint arXiv:2501.08502",
+    year: "2025",
+    link: "https://arxiv.org/abs/2501.08502"
   },
   {
-    title: "Sparse Attention Mechanisms in Edge Computing Environments",
-    authors: "Speight, J.",
-    venue: "International Journal of Computer Vision",
-    year: "2022",
-    link: "#"
-  },
-  {
-    title: "Automating Qualitative Labeling for Industrial Vision Systems",
-    authors: "Speight, J., Miller, P.",
-    venue: "CVPR Technical Reports",
-    year: "2021"
+    title: "Inclusive ASR for Critical Public Services: Debiasing with Actor-Simulated Speech",
+    authors: "M Torgbi, A Clayman, J Speight, J Hirst, HT Madabushi",
+    venue: "International Conference on Text, Speech, and Dialogue",
+    year: "2025",
+    link: "https://link.springer.com/chapter/10.1007/978-3-032-02548-7_28"
   }
 ];
 
