@@ -19,7 +19,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <nav className="sticky top-0 z-50 bg-[#f0f0f0] border-b-4 border-black px-4 md:px-8 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="text-2xl font-black tracking-tighter hover:skew-x-2 transition-transform">
-            JORDAN_SPEIGHT.AI
+            JORDAN SPEIGHT
           </Link>
 
           {/* Desktop Nav */}
@@ -88,7 +88,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           <div className="flex flex-col md:items-end justify-center">
             <p className="text-xl font-bold mb-2 uppercase">© 2024 Jordan Speight</p>
-            <p className="text-gray-500 italic">London-based AI Engineering</p>
           </div>
         </div>
       </footer>
