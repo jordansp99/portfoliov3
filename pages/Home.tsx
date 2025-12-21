@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           <div className="relative group">
             <div className="absolute inset-0 bg-blue-400 border-4 border-black translate-x-6 translate-y-6 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
             <img 
-              src="https://picsum.photos/seed/jordan-profile/800/800" 
+              src="/PXL_20220416_210812350.jpg" 
               alt="Jordan Speight" 
               className="relative z-10 w-full aspect-square object-cover border-4 border-black"
             />
