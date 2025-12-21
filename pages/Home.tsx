@@ -6,6 +6,7 @@ import {
   Briefcase, GraduationCap, Award, BookOpen, ExternalLink, Download 
 } from 'lucide-react';
 import { EXPERIENCES, PUBLICATIONS, PROJECTS, BLOG_POSTS } from '../constants';
+import avatarImage from '../src/assets/avatar.jpg';
 
 const Home: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
               AI Engineer
             </span>
             <h1 className="text-7xl md:text-9xl font-black leading-none tracking-tighter">
-              JORDAN <br />
+              <span className="relative z-10">JORDAN</span> <br />
               <span className="bg-yellow-400 border-x-4 border-black px-2">SPEIGHT</span>
             </h1>
           </div>
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
           <div className="relative group">
             <div className="absolute inset-0 bg-blue-400 border-4 border-black translate-x-6 translate-y-6 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
             <img 
-              src="/PXL_20220416_210812350.jpg" 
+              src={avatarImage} 
               alt="Jordan Speight" 
               className="relative z-10 w-full aspect-square object-cover border-4 border-black"
             />
