@@ -14,7 +14,7 @@ imageUrl: https://picsum.photos/seed/style/800/400
 Bridging the gap between fine art and industrial design.
 
 ## Overview
-This project implements a neural style transfer algorithm based on the [Gatys et al. paper](https://arxiv.org/abs/1508.06576), optimized for high-resolution output suitable for print media.
+This project implements a neural style transfer algorithm based on the [Gatys et al. paper](https://arxiv.org/abs/1508.06576), optimised for high-resolution output suitable for print media.
 
 ## Implementation
 Here is a snippet of the style loss calculation:
