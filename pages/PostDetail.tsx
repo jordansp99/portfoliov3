@@ -2,6 +2,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { BLOG_POSTS, PROJECTS } from '../constants';
 
@@ -58,9 +60,24 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
               code: ({node, className, children, ...props}: any) => {
                 const match = /language-(\w+)/.exec(className || '')
                 const isInline = !match && !String(children).includes('\n');
-                return isInline 
-                  ? <code className="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm border border-black" {...props}>{children}</code>
-                  : <code className="block bg-gray-900 text-white p-6 overflow-x-auto font-mono text-sm border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6" {...props}>{children}</code>
+                
+                if (isInline) {
+                    return <code className="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-sm border border-black" {...props}>{children}</code>;
+                }
+
+                return (
+                    <div className="my-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <SyntaxHighlighter
+                            style={coldarkDark}
+                            language={match ? match[1] : 'text'}
+                            PreTag="div"
+                            customStyle={{ margin: 0, padding: '1.5rem', background: '#111827' }}
+                            {...props}
+                        >
+                            {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                    </div>
+                );
               },
               pre: ({node, ...props}) => <pre className="not-prose" {...props} />,
               img: ({node, ...props}) => <img className="w-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8" {...props} />
