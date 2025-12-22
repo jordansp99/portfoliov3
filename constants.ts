@@ -119,7 +119,7 @@ export const PUBLICATIONS: Publication[] = [
     authors: "Torgbi, M., Clayman, A., Speight, J., Hirst, J. and Madabushi, H.T.",
     venue: "International Conference on Text, Speech, and Dialogue",
     year: "2025",
-    month: "Jan",
+    month: "Aug",
     link: "https://link.springer.com/chapter/10.1007/978-3-032-02548-7_28"
   }
 ];
