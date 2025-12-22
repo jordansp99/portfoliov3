@@ -23,7 +23,7 @@ const Home: React.FC = () => {
             </h1>
           </div>
           <p className="text-2xl md:text-3xl font-bold leading-tight max-w-3xl text-gray-800">
-            AI Engineer with a passion for leveraging NLP and LLMs to solve real-world problems. Proven ability to improve ASR accuracy and develop novel evaluation metrics.
+            AI Engineer dedicated to solving complex real-world challenges through NLP and Large Language Models. Expert in enhancing ASR accuracy and pioneering novel evaluation metrics, with a unique intersection of linguistic expertise and advanced AI development.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
             <div className="flex gap-6 items-center pl-6 border-l-8 border-black">
