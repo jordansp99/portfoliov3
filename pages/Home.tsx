@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                 <div className="space-y-2 pr-4">
                   <h3 className="text-xl font-black group-hover:text-blue-600 transition-colors">{pub.title}</h3>
                   <p className="text-sm font-bold text-gray-600 italic">{pub.authors}</p>
-                  <p className="text-sm font-bold text-gray-500 uppercase">{pub.venue} • {pub.year}</p>
+                  <p className="text-sm font-bold text-gray-500 uppercase">{pub.venue} • {pub.month && `${pub.month} `}{pub.year}</p>
                 </div>
                 <div className="bg-black text-white p-2 border-2 border-black group-hover:bg-blue-500 transition-colors">
                   <ExternalLink size={20} />

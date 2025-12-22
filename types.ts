@@ -30,5 +30,6 @@ export interface Publication {
   authors: string;
   venue: string;
   year: string;
+  month?: string;
   link?: string;
 }

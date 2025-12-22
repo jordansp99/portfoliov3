@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { FileText, Download, Briefcase, GraduationCap, Award } from 'lucide-react';
-import { EXPERIENCES } from '../constants';
+import { FileText, Download, Briefcase, GraduationCap, Award, BookOpen, ExternalLink } from 'lucide-react';
+import { EXPERIENCES, PUBLICATIONS } from '../constants';
 
 const CV: React.FC = () => {
   return (
@@ -32,6 +32,31 @@ const CV: React.FC = () => {
                     <li key={j}>{item}</li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Publications */}
+      <section className="space-y-8">
+        <div className="flex items-center gap-4 bg-green-400 border-4 border-black p-4 w-fit">
+          <BookOpen size={32} />
+          <h2 className="text-3xl font-black uppercase">Publications</h2>
+        </div>
+        <div className="space-y-6">
+          {PUBLICATIONS.map((pub, i) => (
+            <div key={i} className="border-4 border-black p-6 bg-white neo-brutal-shadow">
+              <h3 className="text-xl font-black">{pub.title}</h3>
+              <p className="font-bold text-gray-600 italic mt-2">{pub.authors}</p>
+              <div className="flex flex-wrap items-center gap-4 mt-4">
+                <span className="bg-blue-100 border-2 border-black px-2 py-0.5 text-sm font-black uppercase">{pub.venue}</span>
+                <span className="font-black text-gray-400">{pub.month && `${pub.month} `}{pub.year}</span>
+                {pub.link && (
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-600 font-black hover:underline">
+                    VIEW <ExternalLink size={14} />
+                  </a>
+                )}
               </div>
             </div>
           ))}
