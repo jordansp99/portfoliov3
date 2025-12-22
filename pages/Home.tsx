@@ -120,7 +120,7 @@ const Home: React.FC = () => {
         <section className="md:col-span-8 bg-green-400 border-4 border-black p-8 neo-brutal-shadow flex flex-col gap-8">
           <div className="flex items-center gap-4 bg-white border-4 border-black p-4 w-fit shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <BookOpen size={32} />
-            <h2 className="text-3xl font-black uppercase">Selected Work</h2>
+            <h2 className="text-3xl font-black uppercase">Publications</h2>
           </div>
           <div className="grid grid-cols-1 gap-6">
             {PUBLICATIONS.map((pub, i) => (
@@ -131,8 +131,9 @@ const Home: React.FC = () => {
                 rel="noopener noreferrer" 
                 className="group bg-white border-4 border-black p-6 hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center"
               >
-                <div className="space-y-1 pr-4">
-                  <h3 className="text-xl font-black group-hover:text-blue-600 transition-colors line-clamp-1">{pub.title}</h3>
+                <div className="space-y-2 pr-4">
+                  <h3 className="text-xl font-black group-hover:text-blue-600 transition-colors">{pub.title}</h3>
+                  <p className="text-sm font-bold text-gray-600 italic">{pub.authors}</p>
                   <p className="text-sm font-bold text-gray-500 uppercase">{pub.venue} • {pub.year}</p>
                 </div>
                 <div className="bg-black text-white p-2 border-2 border-black group-hover:bg-blue-500 transition-colors">
