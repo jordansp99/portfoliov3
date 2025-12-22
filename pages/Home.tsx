@@ -29,7 +29,7 @@ const Home: React.FC = () => {
             <div className="flex gap-6 items-center pl-6 border-l-8 border-black">
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Location</span>
-                <span className="font-black text-lg uppercase">Buckingham, UK</span>
+                <span className="font-black text-lg uppercase">Buckinghamshire, UK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Email</span>

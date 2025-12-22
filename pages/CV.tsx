@@ -9,7 +9,7 @@ const CV: React.FC = () => {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-12 border-b-4 border-black">
         <div className="space-y-4">
           <h1 className="text-6xl font-black uppercase tracking-tighter">Curriculum Vitae</h1>
-          <p className="text-xl font-bold text-gray-600">Jordan Speight • Buckingham, UK • jordanspeight@hotmail.com</p>
+          <p className="text-xl font-bold text-gray-600">Jordan Speight • Buckinghamshire, UK • jordanspeight@hotmail.com</p>
         </div>
       </header>
 
