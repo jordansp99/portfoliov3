@@ -67,15 +67,12 @@ const Home: React.FC = () => {
                   <span className="bg-black text-white px-3 py-1 font-black text-sm uppercase">{exp.period}</span>
                 </div>
                 <ul className="space-y-3">
-                  {exp.description.slice(0, 2).map((item, j) => (
+                  {exp.description.map((item, j) => (
                     <li key={j} className="flex gap-4 text-lg font-bold items-start text-gray-700">
                       <span className="mt-2 w-2 h-2 bg-black flex-shrink-0"></span>
                       <span>{item}</span>
                     </li>
                   ))}
-                  {exp.description.length > 2 && (
-                    <li className="text-gray-400 font-bold italic pl-6">+ {exp.description.length - 2} more contributions...</li>
-                  )}
                 </ul>
               </div>
             ))}
@@ -93,12 +90,13 @@ const Home: React.FC = () => {
           </div>
           <div className="space-y-8">
             <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="text-xl font-black">MSc. AI</h3>
-              <p className="font-bold">Essex • 2025</p>
+              <h3 className="text-xl font-black">MSc. Artificial Intelligence</h3>
+              <p className="font-bold">University Of Essex • 2025</p>
             </div>
             <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="text-xl font-black">B.A. Languages</h3>
-              <p className="font-bold">Birmingham • 2020</p>
+              <h3 className="text-xl font-black">B.A. Modern Languages</h3>
+              <p className="font-bold">University of Birmingham • 2020</p>
+              <p className="text-sm font-bold italic">First-Class Honours with Distinction</p>
             </div>
           </div>
         </section>
