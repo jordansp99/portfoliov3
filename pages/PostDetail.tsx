@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -20,10 +19,12 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
 
   if (!data) return <div className="text-center py-24"><h1 className="text-4xl font-black">CONTENT NOT FOUND</h1></div>;
 
+  const listPath = type === 'blog' ? '/blog' : '/projects';
+
   return (
     <article className="max-w-4xl mx-auto space-y-12">
       <Link 
-        to={type === 'blog' ? '/blog' : '/projects'} 
+        to={listPath} 
         className="flex items-center gap-2 font-black border-2 border-black w-fit px-4 py-2 bg-white neo-brutal-shadow-hover transition-all"
       >
         <ArrowLeft size={20} /> BACK TO {type.toUpperCase()}
@@ -43,9 +44,13 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
              </div>
           )}
           {data.tags.map(tag => (
-            <div key={tag} className="flex items-center gap-2 text-lg font-black bg-green-400 border-2 border-black px-3 py-1 uppercase">
+            <Link 
+              key={tag} 
+              to={`${listPath}?tag=${tag}`}
+              className="flex items-center gap-2 text-lg font-black bg-green-400 border-2 border-black px-3 py-1 uppercase hover:bg-green-500 transition-colors"
+            >
               <Tag size={18} /> {tag}
-            </div>
+            </Link>
           ))}
         </div>
 

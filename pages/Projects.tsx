@@ -1,10 +1,10 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 
 const Projects: React.FC = () => {
-  const [selectedTag, setSelectedTag] = React.useState<string | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedTag = searchParams.get('tag');
 
   const filteredProjects = selectedTag 
     ? PROJECTS.filter(p => p.tags.includes(selectedTag))
@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
              <span className="text-xl font-bold">Filtered by:</span>
              <span className="bg-yellow-400 border-2 border-black px-3 py-1 font-black text-sm uppercase">{selectedTag}</span>
              <button 
-                onClick={() => setSelectedTag(null)}
+                onClick={() => setSearchParams({})}
                 className="text-sm font-bold underline decoration-2 hover:text-blue-600"
              >
                 Clear filter
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
                 {project.tags.map(tag => (
                   <button 
                     key={tag} 
-                    onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                    onClick={() => setSearchParams(selectedTag === tag ? {} : { tag })}
                     className={`border-2 border-black px-3 py-1 font-black text-sm uppercase transition-all ${
                       selectedTag === tag 
                         ? 'bg-black text-white scale-110' 
@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
          <div className="text-center py-20 bg-gray-100 border-4 border-black border-dashed">
             <p className="text-2xl font-bold text-gray-500">No projects found with tag "{selectedTag}"</p>
             <button 
-              onClick={() => setSelectedTag(null)}
+              onClick={() => setSearchParams({})}
               className="mt-4 bg-black text-white px-6 py-2 font-black uppercase"
             >
               Clear Filter

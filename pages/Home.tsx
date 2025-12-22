@@ -24,20 +24,17 @@ const Home: React.FC = () => {
             </h1>
           </div>
           <p className="text-2xl md:text-4xl font-bold leading-tight max-w-3xl text-gray-800">
-            Building the infrastructure for the next generation of artificial intelligence. Specialised in <span className="underline decoration-blue-500 underline-offset-4">LLM Engineering</span> and <span className="underline decoration-green-500 underline-offset-4">Computer Vision</span>.
+            AI Engineer with a passion for leveraging NLP and LLMs to solve real-world problems. Proven ability to improve ASR accuracy and develop novel evaluation metrics. Strong foundation in languages and AI.
           </p>
           <div className="flex flex-wrap gap-6 pt-4">
-            <button className="bg-black text-white px-10 py-5 text-2xl font-black flex items-center gap-3 neo-brutal-shadow-hover transition-all">
-              <Download size={28} /> GET PDF CV
-            </button>
             <div className="flex gap-6 items-center pl-6 border-l-8 border-black">
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Location</span>
-                <span className="font-black text-lg uppercase">Buckinghamshire, UK</span>
+                <span className="font-black text-lg uppercase">Buckingham, UK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-sm uppercase text-gray-400">Email</span>
-                <span className="font-black text-lg uppercase">jordan@speight.ai</span>
+                <span className="font-black text-lg uppercase">jordanspeight@hotmail.com</span>
               </div>
             </div>
           </div>
@@ -93,10 +90,10 @@ const Home: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { icon: <Brain size={32} />, title: "Deep Learning", colour: "bg-pink-300", items: "PyTorch, JAX, HuggingFace" },
-            { icon: <Cpu size={32} />, title: "AI Engineering", colour: "bg-green-300", items: "Quantization, CUDA, TensorRT" },
-            { icon: <Database size={32} />, title: "Cloud & Data", colour: "bg-blue-300", items: "AWS, Kubernetes, Pinecone" },
-            { icon: <Rocket size={32} />, title: "Production", colour: "bg-orange-300", items: "FastAPI, Docker, CI/CD" },
+            { icon: <Brain size={32} />, title: "Data Science & AI", colour: "bg-pink-300", items: "Python, Pandas, Scikit-learn, Matplotlib" },
+            { icon: <Cpu size={32} />, title: "Web Development", colour: "bg-green-300", items: "React.js, JavaScript, HTML, CSS" },
+            { icon: <Database size={32} />, title: "Tools & DevOps", colour: "bg-blue-300", items: "Azure DevOps, Git, Label Studio" },
+            { icon: <BookOpen size={32} />, title: "Languages", colour: "bg-orange-300", items: "English (Native), Spanish (C1)" },
           ].map((skill, i) => (
             <div key={i} className={`${skill.colour} p-10 border-4 border-black neo-brutal-shadow h-full flex flex-col gap-6`}>
               <div className="w-20 h-20 bg-white border-4 border-black flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
@@ -117,7 +114,13 @@ const Home: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 gap-8">
           {PUBLICATIONS.map((pub, i) => (
-            <div key={i} className="group bg-white border-4 border-black p-8 neo-brutal-shadow-hover transition-all flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
+            <a 
+              key={i} 
+              href={pub.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group bg-white border-4 border-black p-8 neo-brutal-shadow-hover transition-all flex flex-col md:flex-row gap-8 justify-between items-start md:items-center"
+            >
               <div className="space-y-3">
                 <h3 className="text-3xl font-black group-hover:text-blue-600 transition-colors">{pub.title}</h3>
                 <p className="text-xl font-bold text-gray-500 italic">{pub.authors}</p>
@@ -127,11 +130,11 @@ const Home: React.FC = () => {
                 </div>
               </div>
               {pub.link && (
-                <a href={pub.link} className="bg-black text-white p-5 border-2 border-black hover:bg-blue-500 transition-colors neo-brutal-shadow">
+                <div className="bg-black text-white p-5 border-2 border-black group-hover:bg-blue-500 transition-colors neo-brutal-shadow">
                   <ExternalLink size={32} />
-                </a>
+                </div>
               )}
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -144,13 +147,13 @@ const Home: React.FC = () => {
         </div>
         <div className="space-y-8">
           <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
-            <h3 className="text-3xl font-black">MSc in Artificial Intelligence</h3>
-            <p className="text-2xl font-bold mt-2">Imperial College London • 2019-2020</p>
-            <p className="text-xl text-gray-500 font-bold mt-4 italic">Specialization: Vision Systems & GANs</p>
+            <h3 className="text-3xl font-black">MSc. Artificial Intelligence</h3>
+            <p className="text-2xl font-bold mt-2">University Of Essex • Jan 2025 - Present</p>
           </div>
           <div className="border-4 border-black p-10 bg-white neo-brutal-shadow">
-            <h3 className="text-3xl font-black">BSc Computer Science</h3>
-            <p className="text-2xl font-bold mt-2">University of Edinburgh • 2015-2019</p>
+            <h3 className="text-3xl font-black">B.A. Modern Languages</h3>
+            <p className="text-2xl font-bold mt-2">University of Birmingham • 2016 - 2020</p>
+            <p className="text-xl text-gray-500 font-bold mt-4 italic">First-Class Honours with Distinction in Spoken Spanish</p>
           </div>
         </div>
       </section>

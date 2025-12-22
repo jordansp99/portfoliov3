@@ -1,11 +1,11 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Calendar, Tag } from 'lucide-react';
 import { BLOG_POSTS } from '../constants';
 
 const Blog: React.FC = () => {
-  const [selectedTag, setSelectedTag] = React.useState<string | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedTag = searchParams.get('tag');
 
   const filteredPosts = selectedTag
     ? BLOG_POSTS.filter(p => p.tags.includes(selectedTag))
@@ -23,7 +23,7 @@ const Blog: React.FC = () => {
              <span className="text-xl font-bold">Filtered by:</span>
              <span className="bg-green-200 border-2 border-black px-3 py-1 font-black text-sm uppercase">{selectedTag}</span>
              <button 
-                onClick={() => setSelectedTag(null)}
+                onClick={() => setSearchParams({})}
                 className="text-sm font-bold underline decoration-2 hover:text-green-600"
              >
                 Clear filter
@@ -53,7 +53,7 @@ const Blog: React.FC = () => {
               {post.tags.map(tag => (
                  <button 
                     key={tag} 
-                    onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                    onClick={() => setSearchParams(selectedTag === tag ? {} : { tag })}
                     className={`border-2 border-black px-2 py-0.5 text-xs font-black uppercase transition-all ${
                       selectedTag === tag 
                         ? 'bg-black text-white scale-110' 
@@ -72,7 +72,7 @@ const Blog: React.FC = () => {
          <div className="text-center py-20 bg-gray-100 border-4 border-black border-dashed col-span-full">
             <p className="text-2xl font-bold text-gray-500">No posts found with tag "{selectedTag}"</p>
             <button 
-              onClick={() => setSelectedTag(null)}
+              onClick={() => setSearchParams({})}
               className="mt-4 bg-black text-white px-6 py-2 font-black uppercase"
             >
               Clear Filter

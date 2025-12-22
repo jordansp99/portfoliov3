@@ -81,23 +81,26 @@ export const BLOG_POSTS: BlogPost[] = loadContent<BlogPost>(blogFiles, 'blog')
 
 export const EXPERIENCES: Experience[] = [
   {
-    company: "NeuralCraft AI",
-    role: "Senior AI Engineer",
-    period: "2022 - Present",
+    company: "Wyser LTD",
+    role: "Junior Data Scientist",
+    period: "May 2024 – June 2025",
     description: [
-      "Leading the development of multi-modal RAG systems for enterprise knowledge bases.",
-      "Optimised inference latency by 40% through quantisation and custom CUDA kernels.",
-      "Managed a team of 4 engineers focusing on vision-language models."
+      "Collaborated with academic partners on a research project addressing sociolinguistic biases in Automatic Speech Recognition (ASR) models for regional dialects in the UK public service sector.",
+      "Delivered the final project presentation to UK Research and Innovation evaluating technical achievements for ASR research project contributing to a highly positive funder review.",
+      "Designed and implemented a public benchmarking leaderboard and white paper on the project website, showcasing the comparative performance of ASR models on UK regional accents.",
+      "Developed data pipelines encompassing data cleaning, inference, and visualisation, providing actionable insights into the comparative performance of finetuned Whisper and Gemini multimodal transcription models on UK accents.",
+      "Developed a Key Information error rate metric, which used NER models and LLMs to quantify the ability of different ASR models to capture important facts.",
+      "Engineered a custom text normaliser to improve data consistency by standardising transcription styles, addressing variations in date formatting and spacing.",
+      "Designed comparative experiments to evaluate the performance of different text summarisation and speaker diarisation methods."
     ]
   },
   {
-    company: "DataVizion Inc.",
-    role: "Machine Learning Engineer",
-    period: "2020 - 2022",
+    company: "TELUS International AI-Data Solutions",
+    role: "Data Analyst",
+    period: "Sep 2020 – May 2024",
     description: [
-      "Deployed real-time object detection systems for industrial quality control.",
-      "Built automated data labeling pipelines using active learning strategies.",
-      "Collaborated with cross-functional teams to integrate ML models into production React apps."
+      "Labelled and annotated AI training data, including map-related data, images and text, to ensure accuracy and relevance for machine learning models.",
+      "Ensured all data collection and evaluation processes were consistent with the client’s precise guidelines."
     ]
   }
 ];

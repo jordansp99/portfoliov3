@@ -81,7 +81,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <a href="#" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
                 <Linkedin />
               </a>
-              <a href="mailto:jordan@speight.ai" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
+              <a href="mailto:jordanspeight@hotmail.com" className="p-3 bg-white text-black border-2 border-white hover:bg-yellow-400 transition-colors">
                 <Mail />
               </a>
             </div>

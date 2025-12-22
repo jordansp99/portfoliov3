@@ -9,11 +9,8 @@ const CV: React.FC = () => {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-12 border-b-4 border-black">
         <div className="space-y-4">
           <h1 className="text-6xl font-black uppercase tracking-tighter">Curriculum Vitae</h1>
-          <p className="text-xl font-bold text-gray-600">Jordan Speight • London, UK • jordan@speight.ai</p>
+          <p className="text-xl font-bold text-gray-600">Jordan Speight • Buckingham, UK • jordanspeight@hotmail.com</p>
         </div>
-        <button className="flex items-center gap-2 bg-black text-white px-6 py-3 font-black text-lg neo-brutal-shadow-hover transition-all">
-          <Download size={20} /> DOWNLOAD PDF
-        </button>
       </header>
 
       {/* Experience */}
@@ -50,13 +47,18 @@ const CV: React.FC = () => {
           </div>
           <div className="space-y-6">
             <div className="border-4 border-black p-6 bg-white neo-brutal-shadow">
-              <h3 className="text-xl font-black">MSc in Artificial Intelligence</h3>
-              <p className="font-bold">Imperial College London • 2019-2020</p>
-              <p className="text-gray-500 italic">Focus: Generative Adversarial Networks</p>
+              <h3 className="text-xl font-black">MSc. Artificial Intelligence</h3>
+              <p className="font-bold">University Of Essex • Jan 2025 - Present</p>
             </div>
             <div className="border-4 border-black p-6 bg-white neo-brutal-shadow">
-              <h3 className="text-xl font-black">BSc Computer Science</h3>
-              <p className="font-bold">University of Edinburgh • 2015-2019</p>
+              <h3 className="text-xl font-black">B.A. Modern Languages</h3>
+              <p className="font-bold">University of Birmingham • 2016-2020</p>
+              <p className="text-gray-500 italic">First-Class Honours with Distinction in Spoken Spanish</p>
+            </div>
+            <div className="border-4 border-black p-6 bg-white neo-brutal-shadow">
+              <h3 className="text-xl font-black">A-Levels</h3>
+              <p className="font-bold">Aylesbury Grammar School • 2016</p>
+              <p className="text-gray-500 italic">Spanish (A), Computing (B), Chemistry (C)</p>
             </div>
           </div>
         </section>
@@ -68,10 +70,9 @@ const CV: React.FC = () => {
           </div>
           <div className="space-y-4">
             {[
-              "1st Place - Global AI Hackathon (2023)",
-              "AWS Certified ML Specialist",
-              "Featured Speaker @ NeurIPS Workshops",
-              "Open Source Contributor (PyTorch)"
+              "First-Class Honours with Distinction",
+              "Distinction in Spoken Spanish",
+              "UKRI ASR Research Project Contributor"
             ].map((award, i) => (
               <div key={i} className="flex items-center gap-4 border-b-2 border-black pb-2">
                 <div className="w-2 h-2 bg-black rotate-45"></div>
@@ -86,7 +87,7 @@ const CV: React.FC = () => {
       <section className="bg-black text-white p-8 border-4 border-black shadow-[10px_10px_0px_0px_rgba(34,197,94,1)]">
         <h2 className="text-3xl font-black mb-6 uppercase">Technical Proficiency</h2>
         <div className="flex flex-wrap gap-4">
-          {["Python", "PyTorch", "Rust", "TypeScript", "TensorFlow", "Kubernetes", "AWS", "CUDA", "FastAPI", "React"].map(s => (
+          {["Python", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn", "React.js", "JavaScript", "HTML", "CSS", "Azure DevOps", "Git", "Label Studio"].map(s => (
             <span key={s} className="bg-white text-black px-4 py-2 font-black border-2 border-white hover:bg-green-400 transition-colors cursor-default">
               {s}
             </span>
