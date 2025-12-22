@@ -54,7 +54,7 @@ const Home: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         
         {/* Experience - Large Box */}
-        <section className="md:col-span-8 bg-white border-4 border-black p-8 neo-brutal-shadow flex flex-col gap-8">
+        <section className="md:col-span-8 md:row-span-2 bg-white border-4 border-black p-8 neo-brutal-shadow flex flex-col gap-8">
           <div className="flex items-center gap-4 bg-yellow-400 border-4 border-black p-4 w-fit shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <Briefcase size={32} />
             <h2 className="text-3xl font-black uppercase">Experience</h2>
@@ -77,9 +77,6 @@ const Home: React.FC = () => {
               </div>
             ))}
           </div>
-          <Link to="/cv" className="mt-auto self-end flex items-center gap-2 font-black text-xl hover:underline underline-offset-4">
-            VIEW FULL CV <ArrowRight size={24} />
-          </Link>
         </section>
 
         {/* Education - Small Box */}
@@ -91,12 +88,12 @@ const Home: React.FC = () => {
           <div className="space-y-8">
             <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-xl font-black">MSc. Artificial Intelligence</h3>
-              <p className="font-bold">University Of Essex • 2025</p>
+              <p className="font-bold text-sm">University Of Essex • 2025</p>
             </div>
             <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="text-xl font-black">B.A. Modern Languages</h3>
-              <p className="font-bold">University of Birmingham • 2020</p>
-              <p className="text-sm font-bold italic">First-Class Honours with Distinction</p>
+              <h3 className="text-xl font-black text-sm">B.A. Modern Languages</h3>
+              <p className="font-bold text-xs">University of Birmingham • 2020</p>
+              <p className="text-[10px] font-bold italic">First-Class Honours with Distinction</p>
             </div>
           </div>
         </section>
@@ -109,7 +106,7 @@ const Home: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-3">
             {["Python", "NLP", "LLMs", "ASR", "Pandas", "PyTorch", "React", "Azure"].map(skill => (
-              <span key={skill} className="bg-white border-2 border-black px-3 py-1 font-black text-sm uppercase">
+              <span key={skill} className="bg-white border-2 border-black px-3 py-1 font-black text-xs uppercase">
                 {skill}
               </span>
             ))}
@@ -117,12 +114,12 @@ const Home: React.FC = () => {
         </section>
 
         {/* Publications - Large Box */}
-        <section className="md:col-span-8 bg-green-400 border-4 border-black p-8 neo-brutal-shadow flex flex-col gap-8">
+        <section className="md:col-span-12 bg-green-400 border-4 border-black p-8 neo-brutal-shadow flex flex-col gap-8">
           <div className="flex items-center gap-4 bg-white border-4 border-black p-4 w-fit shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <BookOpen size={32} />
             <h2 className="text-3xl font-black uppercase">Publications</h2>
           </div>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PUBLICATIONS.map((pub, i) => (
               <a 
                 key={i} 
