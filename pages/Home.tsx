@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               <p className="font-bold text-lg mt-1">University Of Essex • 2025</p>
             </div>
             <div className="bg-white border-2 border-black p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="text-xl font-black italic underline decoration-blue-500 underline-offset-4">B.A. Modern Languages</h3>
+              <h3 className="text-xl font-black italic underline decoration-purple-500 underline-offset-4">B.A. Modern Languages</h3>
               <p className="font-bold text-lg mt-1">University of Birmingham • 2020</p>
               <p className="text-base font-bold italic text-gray-600 mt-2 border-t-2 border-black pt-2">First-Class Honours with Distinction</p>
             </div>
