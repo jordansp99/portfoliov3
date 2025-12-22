@@ -119,7 +119,7 @@ const Home: React.FC = () => {
             <BookOpen size={32} />
             <h2 className="text-3xl font-black uppercase">Publications</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {PUBLICATIONS.map((pub, i) => (
               <a 
                 key={i} 
