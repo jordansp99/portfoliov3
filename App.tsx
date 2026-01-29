@@ -10,6 +10,7 @@ import PostDetail from './pages/PostDetail';
 const App: React.FC = () => {
   return (
     <Layout>
+      <div className="glow-bg" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />

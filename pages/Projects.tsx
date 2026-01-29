@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { PROJECTS } from '../constants';
+import { Filter, ArrowRight } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,63 +13,72 @@ const Projects: React.FC = () => {
 
   return (
     <div className="space-y-16">
-      <header className="space-y-4">
-        <h1 className="text-6xl md:text-8xl font-black underline decoration-blue-500 underline-offset-8">PROJECTS</h1>
-        <p className="text-2xl font-bold max-w-2xl">
+      <header className="space-y-6 pt-8">
+        <h1 className="text-5xl md:text-7xl font-medium tracking-tighter text-gray-900">Projects</h1>
+        <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-light">
           A collection of systems I've built, ranging from security wrappers for LLMs to high-performance vision pipelines.
         </p>
-        {selectedTag && (
-          <div className="flex items-center gap-4 pt-4 animate-in fade-in">
-             <span className="text-xl font-bold">Filtered by:</span>
-             <span className="bg-yellow-400 border-2 border-black px-3 py-1 font-black text-sm uppercase">{selectedTag}</span>
-             <button 
-                onClick={() => setSearchParams({})}
-                className="text-sm font-bold underline decoration-2 hover:text-blue-600"
-             >
-                Clear filter
-             </button>
-          </div>
-        )}
+        
+        <div className="flex items-center gap-3 pt-4">
+           <Filter size={16} className="text-gray-400" />
+           {selectedTag ? (
+             <>
+               <span className="text-sm font-mono text-gray-500">Filtered by:</span>
+               <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-mono font-bold uppercase tracking-wider">{selectedTag}</span>
+               <button 
+                  onClick={() => setSearchParams({})}
+                  className="text-xs font-mono text-gray-400 hover:text-gray-900 transition-colors border-b border-gray-300 hover:border-gray-900 ml-2"
+               >
+                  CLEAR_FILTER
+               </button>
+             </>
+           ) : (
+             <span className="text-sm font-mono text-gray-400 italic">No active filters</span>
+           )}
+        </div>
       </header>
 
-      <div className="grid grid-cols-1 gap-12">
-        {filteredProjects.map((project) => (
+      <div className="grid grid-cols-1 gap-16">
+        {filteredProjects.map((project, index) => (
           <div 
             key={project.id} 
-            className="flex flex-col md:flex-row gap-8 bg-white border-4 border-black neo-brutal-shadow p-6"
+            className="group flex flex-col md:flex-row gap-8 md:gap-12 items-center"
           >
-            <div className="md:w-1/2 overflow-hidden border-4 border-black">
+            <div className={`md:w-3/5 overflow-hidden rounded-2xl border border-gray-200 shadow-sm relative ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+              <div className="absolute inset-0 bg-indigo-900/0 group-hover:bg-indigo-900/10 transition-colors duration-500 z-10 pointer-events-none"></div>
               <img 
                 src={project.imageUrl} 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-100 hover:scale-105" 
+                className="w-full aspect-[16/9] object-cover transition-transform duration-700 group-hover:scale-105" 
                 alt={project.title}
               />
             </div>
-            <div className="md:w-1/2 flex flex-col justify-center space-y-6">
-              <div className="flex flex-wrap gap-2">
+            <div className={`md:w-2/5 flex flex-col justify-center space-y-6 ${index % 2 === 1 ? 'md:order-1 md:text-right md:items-end' : ''}`}>
+              <div className={`flex flex-wrap gap-2 ${index % 2 === 1 ? 'justify-end' : ''}`}>
                 {project.tags.map(tag => (
                   <button 
                     key={tag} 
                     onClick={() => setSearchParams(selectedTag === tag ? {} : { tag })}
-                    className={`border-2 border-black px-3 py-1 font-black text-sm uppercase transition-all ${
+                    className={`px-2 py-1 rounded text-[10px] font-mono uppercase tracking-widest transition-all border ${
                       selectedTag === tag 
-                        ? 'bg-black text-white scale-110' 
-                        : 'bg-yellow-400 hover:bg-yellow-300 hover:-translate-y-1'
+                        ? 'bg-gray-900 text-white border-gray-900' 
+                        : 'bg-white text-gray-500 border-gray-200 hover:border-indigo-400 hover:text-indigo-600'
                     }`}
                   >
                     {tag}
                   </button>
                 ))}
               </div>
-              <h2 className="text-4xl font-black">{project.title}</h2>
-              <p className="text-xl font-bold text-gray-700 leading-relaxed">
+              <h2 className="text-4xl font-medium tracking-tight text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+                <Link to={`/projects/${project.id}`}>{project.title}</Link>
+              </h2>
+              <p className="text-lg text-gray-500 leading-relaxed font-light">
                 {project.description}
               </p>
               <Link 
                 to={`/projects/${project.id}`} 
-                className="inline-block bg-black text-white px-8 py-3 text-lg font-black w-fit hover:bg-blue-600 transition-colors"
+                className={`inline-flex items-center gap-2 text-sm font-mono font-bold uppercase tracking-widest text-gray-900 hover:text-indigo-600 transition-colors w-fit group/link ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
               >
-                EXPLORE CASE STUDY
+                View Case Study <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -76,13 +86,13 @@ const Projects: React.FC = () => {
       </div>
       
       {filteredProjects.length === 0 && (
-         <div className="text-center py-20 bg-gray-100 border-4 border-black border-dashed">
-            <p className="text-2xl font-bold text-gray-500">No projects found with tag "{selectedTag}"</p>
+         <div className="text-center py-32 bg-white/50 border border-dashed border-gray-300 rounded-3xl backdrop-blur-sm">
+            <p className="text-lg font-mono text-gray-400 mb-6">NULL_RESULT: No projects found with tag "{selectedTag}"</p>
             <button 
               onClick={() => setSearchParams({})}
-              className="mt-4 bg-black text-white px-6 py-2 font-black uppercase"
+              className="px-8 py-3 bg-gray-900 text-white rounded-full text-sm font-mono font-bold hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-200"
             >
-              Clear Filter
+              RESET_FILTERS
             </button>
          </div>
       )}
