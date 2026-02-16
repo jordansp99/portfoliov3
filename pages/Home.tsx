@@ -11,31 +11,25 @@ const Home: React.FC = () => {
   return (
     <div className="space-y-24 pb-24">
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center gap-16 pt-8 md:pt-16">
+      <section className="flex flex-col md:flex-row items-center gap-12 pt-8 md:pt-16">
+        <div className="w-full md:w-[280px] flex-shrink-0">
+          <img 
+            src={avatarImage} 
+            alt="Jordan Speight" 
+            className="w-full aspect-square object-cover rounded-2xl shadow-xl"
+          />
+        </div>
         <div className="flex-1 space-y-10">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 font-mono text-xs tracking-wider uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-              Available for Research & Dev
-            </div>
             <h1 className="text-6xl md:text-8xl font-medium tracking-tighter text-gray-900 leading-[0.9] mix-blend-multiply">
               Jordan <br />
               <span className="text-gray-400 font-light italic">Speight</span>
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light">
-            AI Engineer bridging the gap between <span className="font-medium text-black">linguistic theory</span> and <span className="font-medium text-black">deep learning</span>. I architect robust intelligent systems that solve complex, real-world problems.
+            <span className="font-medium text-black">AI Researcher</span>. I architect robust intelligent systems that solve complex, real-world problems.
           </p>
           <div className="flex flex-wrap gap-8 pt-4 border-t border-gray-200 w-fit pr-12">
-            <div className="flex items-center gap-3 group cursor-default">
-              <div className="p-2 bg-white border border-gray-200 rounded-lg text-gray-400 group-hover:text-black group-hover:border-black transition-all duration-300">
-                <MapPin size={18} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">Base</span>
-                <span className="text-sm font-medium text-gray-900">Buckinghamshire, UK</span>
-              </div>
-            </div>
             <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.location.href = 'mailto:jordanspeight@hotmail.com'}>
               <div className="p-2 bg-white border border-gray-200 rounded-lg text-gray-400 group-hover:text-indigo-600 group-hover:border-indigo-600 transition-all duration-300">
                 <Mail size={18} />
@@ -46,14 +40,6 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-full md:w-[280px] relative group">
-           <div className="absolute inset-0 bg-indigo-500 rounded-2xl rotate-3 opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
-          <img 
-            src={avatarImage} 
-            alt="Jordan Speight" 
-            className="relative z-10 w-full aspect-square object-cover rounded-2xl shadow-2xl rotate-0 group-hover:-rotate-1 transition-transform duration-500 grayscale group-hover:grayscale-0"
-          />
         </div>
       </section>
 
@@ -69,21 +55,14 @@ const Home: React.FC = () => {
             <h2 className="text-3xl font-medium tracking-tight text-gray-900">Experience</h2>
             <div className="h-px bg-gray-300 flex-grow ml-4"></div>
           </div>
-          <div className="space-y-12 relative z-10">
+          <div className="space-y-8 relative z-10">
             {EXPERIENCES.map((exp, i) => (
               <div key={i} className="relative pl-8 border-l border-gray-200 hover:border-indigo-400 transition-colors duration-300">
                 <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-white border-2 border-gray-300 group-hover:border-indigo-500 transition-colors"></div>
-                <div className="flex flex-col md:flex-row justify-between md:items-baseline mb-4 gap-2">
+                <div className="flex flex-col md:flex-row justify-between md:items-baseline gap-2">
                   <h3 className="text-xl font-bold text-gray-900">{exp.role} <span className="text-gray-400 font-normal italic">at</span> {exp.company}</h3>
                   <span className="font-mono text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full uppercase tracking-wider">{exp.period}</span>
                 </div>
-                <ul className="space-y-3">
-                  {exp.description.map((item, j) => (
-                    <li key={j} className="text-gray-600 leading-relaxed text-base font-light">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -97,16 +76,11 @@ const Home: React.FC = () => {
           <div className="space-y-8">
             <div className="group">
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">MSc. Artificial Intelligence</h3>
-              <p className="text-gray-500 text-sm mb-2">University Of Essex</p>
-              <div className="flex items-center gap-2">
-                 <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
-                 <p className="font-mono text-xs text-gray-400 uppercase">Jan 2025 - Present</p>
-              </div>
+              <p className="text-gray-500 text-sm">University Of Essex</p>
             </div>
             <div className="group border-t border-gray-100 pt-6">
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">B.A. Modern Languages</h3>
-              <p className="text-gray-500 text-sm mb-2">University of Birmingham</p>
-              <p className="text-xs font-mono text-indigo-600 border border-indigo-100 bg-indigo-50 px-2 py-1 w-fit rounded">First-Class Honours</p>
+              <p className="text-gray-500 text-sm">University of Birmingham</p>
             </div>
           </div>
         </section>
@@ -130,7 +104,7 @@ const Home: React.FC = () => {
         {/* Publications - Large Box */}
         <section className="md:col-span-12 bg-white/60 backdrop-blur-md border border-white/40 shadow-sm p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
           <div className="flex items-center gap-3 mb-8">
-            <h2 className="text-2xl font-medium tracking-tight text-gray-900">Selected Publications</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-gray-900">Publications</h2>
             <div className="h-px bg-gray-300 flex-grow ml-4"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

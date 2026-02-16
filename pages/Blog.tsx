@@ -13,7 +13,7 @@ const Blog: React.FC = () => {
 
   return (
     <div className="space-y-16">
-      <header className="space-y-6 pt-8">
+      <header className="space-y-6 pt-8 bg-white p-8 rounded-3xl shadow-sm">
         <h1 className="text-5xl md:text-7xl font-medium tracking-tighter text-gray-900">Blog</h1>
         <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-light">
           Thoughts on AI architecture, deep learning research, and the future of engineering.
@@ -42,7 +42,7 @@ const Blog: React.FC = () => {
         {filteredPosts.map((post) => (
           <article 
             key={post.id} 
-            className="group flex flex-col justify-between h-full bg-white/40 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+            className="group flex flex-col justify-between h-full bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
           >
              <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-indigo-500">
                 <ArrowUpRight size={24} />

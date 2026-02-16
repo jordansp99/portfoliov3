@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
 
   return (
     <div className="space-y-16">
-      <header className="space-y-6 pt-8">
+      <header className="space-y-6 pt-8 bg-white p-8 rounded-3xl shadow-sm">
         <h1 className="text-5xl md:text-7xl font-medium tracking-tighter text-gray-900">Projects</h1>
         <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-light">
           A collection of systems I've built, ranging from security wrappers for LLMs to high-performance vision pipelines.
@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
                 alt={project.title}
               />
             </div>
-            <div className={`md:w-2/5 flex flex-col justify-center space-y-6 ${index % 2 === 1 ? 'md:order-1 md:text-right md:items-end' : ''}`}>
+            <div className={`md:w-2/5 flex flex-col justify-center space-y-6 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 ${index % 2 === 1 ? 'md:order-1 md:text-right md:items-end' : ''}`}>
               <div className={`flex flex-wrap gap-2 ${index % 2 === 1 ? 'justify-end' : ''}`}>
                 {project.tags.map(tag => (
                   <button 
