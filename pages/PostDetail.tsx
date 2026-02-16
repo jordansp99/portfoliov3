@@ -38,34 +38,36 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
       </Link>
 
       <div className="space-y-8">
-        <header className="space-y-6 border-b border-gray-100 pb-8">
-            <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 leading-[1.1]">
-                {data.title}
-            </h1>
-            
-            <div className="flex flex-wrap gap-6 items-center">
-            {'date' in data && (
+        <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <header className="space-y-6">
+                <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 leading-[1.1]">
+                    {data.title}
+                </h1>
+                
+                <div className="flex flex-wrap gap-6 items-center">
+                {'date' in data && (
+                    <div className="flex items-center gap-2 text-gray-400 font-mono text-xs uppercase tracking-wider">
+                        <Calendar size={14} /> {data.date}
+                    </div>
+                )}
                 <div className="flex items-center gap-2 text-gray-400 font-mono text-xs uppercase tracking-wider">
-                    <Calendar size={14} /> {data.date}
+                    <Clock size={14} /> 5 min read
                 </div>
-            )}
-            <div className="flex items-center gap-2 text-gray-400 font-mono text-xs uppercase tracking-wider">
-                 <Clock size={14} /> 5 min read
-            </div>
-            
-            <div className="flex gap-2 ml-auto">
-                {data.tags.map(tag => (
-                    <Link 
-                    key={tag} 
-                    to={`${listPath}?tag=${tag}`}
-                    className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 border border-gray-200 text-gray-500 rounded text-[10px] font-mono uppercase tracking-widest hover:border-indigo-400 hover:text-indigo-600 transition-colors"
-                    >
-                    <Tag size={10} /> {tag}
-                    </Link>
-                ))}
-            </div>
-            </div>
-        </header>
+                
+                <div className="flex gap-2 ml-auto">
+                    {data.tags.map(tag => (
+                        <Link 
+                        key={tag} 
+                        to={`${listPath}?tag=${tag}`}
+                        className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 border border-gray-200 text-gray-500 rounded text-[10px] font-mono uppercase tracking-widest hover:border-indigo-400 hover:text-indigo-600 transition-colors"
+                        >
+                        <Tag size={10} /> {tag}
+                        </Link>
+                    ))}
+                </div>
+                </div>
+            </header>
+        </div>
 
         {type === 'project' && 'imageUrl' in data && (
           <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200 border border-gray-100">
@@ -73,10 +75,10 @@ const PostDetail: React.FC<{ type: 'blog' | 'project' }> = ({ type }) => {
           </div>
         )}
 
-        <div className="prose prose-lg prose-slate max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-p:font-light prose-p:leading-relaxed prose-a:text-indigo-600 prose-a:no-underline prose-a:border-b prose-a:border-indigo-200 hover:prose-a:border-indigo-600 prose-img:rounded-2xl prose-code:text-indigo-600 prose-code:bg-indigo-50 prose-code:px-1 prose-code:rounded prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
+        <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 prose prose-lg prose-slate max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-p:font-light prose-p:leading-relaxed prose-a:text-indigo-600 prose-a:no-underline prose-a:border-b prose-a:border-indigo-200 hover:prose-a:border-indigo-600 prose-img:rounded-2xl prose-code:text-indigo-600 prose-code:bg-indigo-50 prose-code:px-1 prose-code:rounded prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
           <ReactMarkdown 
             components={{
-              h1: ({node, ...props}) => <h1 className="text-3xl mt-16 mb-8 text-gray-900" {...props} />,
+              h1: ({node, ...props}) => <h1 className="text-3xl mt-8 mb-8 text-gray-900" {...props} />,
               h2: ({node, ...props}) => <h2 className="text-2xl mt-12 mb-6 text-gray-900 flex items-center gap-3 before:content-['#'] before:text-indigo-200 before:font-light" {...props} />,
               h3: ({node, ...props}) => <h3 className="text-xl mt-8 mb-4 text-gray-900" {...props} />,
               p: ({node, ...props}) => <p className="text-gray-600 mb-6" {...props} />,
